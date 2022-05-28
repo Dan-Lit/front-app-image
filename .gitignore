@@ -30,6 +30,13 @@ chrome-profiler-events*.json
 !.vscode/extensions.json
 .history/*
 
+.sqlite
+.suo
+*.config
+slnx.sqlite
+*.vs.json
+VSWorkspaceState.json
+
 # misc
 /.angular/cache
 /.sass-cache
