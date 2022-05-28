@@ -1,0 +1,22 @@
+<div class="row">
+  <ul>
+    <li *ngFor="let img of allImages">
+      <a [routerLink]="">
+        <img src="{{img.url}}"
+             class="img"
+             width="240"
+             height="170">
+      </a>
+    </li>
+  </ul>
+</div>
+
+<gallery [flexBorderSize]="3"
+         [flexImageSize]="7"
+         [galleryName]="'yourGalleryName'"
+         [maxRowsPerPage]="100"
+         [metadataUri]="''">
+</gallery>
+
+
+<!--node node_modules/angular2-image-gallery/convert.js C:/Users/danie/source/repos/front-app-image/src/assets/images--> 
