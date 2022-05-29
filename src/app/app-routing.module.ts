@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ShowAllComponent } from './show-all/show-all.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'show-all', component: ShowAllComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
