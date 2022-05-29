@@ -1,4 +1,4 @@
-<div class="row">
+<!--<div class="row">
   <ul>
     <li *ngFor="let img of allImages">
       <a [routerLink]="">
@@ -9,14 +9,17 @@
       </a>
     </li>
   </ul>
+</div>-->
+
+<div class="slidecontainer">
+  <input type="range" min="1" max="20" value="1" class="slider"
+         name="slider">
 </div>
 
-<gallery [flexBorderSize]="3"
-         [flexImageSize]="7"
-         [galleryName]="'yourGalleryName'"
-         [maxRowsPerPage]="100"
-         [metadataUri]="''">
+
+<gallery [flexBorderSize]="1"
+         [flexImageSize]="1">
 </gallery>
 
 
-<!--node node_modules/angular2-image-gallery/convert.js C:/Users/danie/source/repos/front-app-image/src/assets/images--> 
+<!--node node_modules/angular2-image-gallery/convert.js C:/Users/danie/source/repos/front-app-image/src/assets/images-->
