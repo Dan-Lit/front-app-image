@@ -23,7 +23,7 @@ export class ConfigService {
 
   public uploadImage(formData: FormData): Observable<Object> {
     console.log(this.urlPath);
-    return this.client.put(this.urlPath + '/api/images', formData, {
+    return this.client.put(this.urlPath + '/api/images/several', formData, {
       observe: 'response',
     });
   }

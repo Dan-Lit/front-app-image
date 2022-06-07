@@ -14,7 +14,8 @@ export class UploadImagesComponent {
     const files: File[] = imageInput.files;
 
     var formData = new FormData();
-    Array.from(files).forEach(f => formData.append('file', f)); //mismo nombre que el parámetro del método del controlador de la api, importante
+    Array.from(files).forEach(f => formData.append('files', f));
+    //mismo nombre que el parámetro del método del controlador de la api, importante
 
     console.log(formData.get('image'));
 
