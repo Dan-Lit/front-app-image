@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'app-show-all',
@@ -7,10 +9,16 @@ import { Component, OnInit} from '@angular/core';
 })
 export class ShowAllComponent implements OnInit {
 
-  constructor() {
-  }
+  data: any = []
+  endpoint = 'assets/database/'
+
+  constructor(private imageService: ConfigService) { }
 
   ngOnInit(): void {
+    this.imageService.getAllImagesURL()
+      .subscribe((res) => {
+        this.data = res
+        console.log(this.data)
+      })
   }
-
 }

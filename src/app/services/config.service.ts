@@ -27,6 +27,11 @@ export class ConfigService {
       observe: 'response',
     });
   }
+
+  public getAllImagesURL() {
+    const url = 'https://localhost:7194/api/Images/GetAll/url'
+    return this.client.get(url);
+  }
  
 
 }
