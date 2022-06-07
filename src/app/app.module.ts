@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ShowAllComponent } from './show-all/show-all.component';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ShowAllComponent,
-    UploadImagesComponent
+    UploadImagesComponent,
+    TestComponent
   ],
   imports: [
     Angular2ImageGalleryModule,

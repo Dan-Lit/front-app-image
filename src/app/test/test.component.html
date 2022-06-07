@@ -1,0 +1,13 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to our Image Gallery!
+  </h1>
+  <button (click)="getDataFromMyAPI()">Fetch Data</button>
+</div>
+<div class="gallery" *ngFor="let image of data">
+  <a target="_blank" [href]="image.href">
+    <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
+  </a>
+  <div class="desc">{{this.endpoint + image.imageId + '.jpg'}}</div>
+</div>
+
