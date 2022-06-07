@@ -2,34 +2,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { ImageResponse } from '../shared/image-response.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
-  urlPath = 'https://localhost:7194';
-
-httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'multipart/form-data',
-    })
-  };
+  urlPath: string = 'https://localhost:7194';
+  imageID: string = 'dcada2fb-7d0d-416e-94a4-75fbc59b2f41';
 
   constructor(private client: HttpClient) {} 
 
-  getAllImages(): Observable<Blob> {
-    //var images =
-    return this.client.get(this.urlPath + '/api/images/getall', { responseType: 'blob' });
+  public getAllImages() {
+    return this.client.get<ImageResponse>(this.urlPath + '/api/images/getall');
   }
 
-  //public uploadImage(image: File): Observable<Object> {
-  //  const formData = new FormData();
-
-  //  formData.append('image', image);
-
-  //  return this.client.put('/api/images', image);
-  //}
-
+  public getImage() {
+    return this.client.get<string>(this.urlPath + '/api/images/' + this.imageID);
+  }
 
   public uploadImage(formData: FormData): Observable<Object> {
     console.log(this.urlPath);
