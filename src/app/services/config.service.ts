@@ -32,4 +32,30 @@ export class ConfigService {
     return this.client.get(this.urlPath + '/api/Images/GetAll/url');
   }
 
+  public getImageTags(imageId: string) {
+    return this.client.get(this.urlPath + '/api/images/getTags/' + imageId);
+  }
+
+  public AssignTag(imageId: string, tagName: string) {
+    return this.client.get(this.urlPath + '/api/tag/' + imageId + '/' + tagName, {
+      observe: 'response'
+    });
+  }
+
+  //se viene el modelo, por lo que cada tag trae todas las imágenes asociadas
+  public GetAllTags() {
+    return this.client.get(this.urlPath + '/api/tag/all');
+  }
+
+  public CreateTag(tagName: string) {
+    console.log((this.urlPath + '/api/tag/' + tagName));
+    return this.client.get(this.urlPath + '/api/tag/' + tagName);
+  }
+
+  public GetUntaggedImages() {
+    return this.client.get(this.urlPath + 'api/images/untagged');
+  }
+
+}
+
 }
