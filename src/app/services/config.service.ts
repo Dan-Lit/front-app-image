@@ -27,6 +27,9 @@ export class ConfigService {
       observe: 'response',
     });
   }
- 
+
+  public getAllImagesURL() {
+    return this.client.get(this.urlPath + '/api/Images/GetAll/url');
+  }
 
 }
