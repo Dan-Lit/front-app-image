@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { ShowAllComponent } from './show-all/show-all.component';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
 import { TestComponent } from './test/test.component';
+import { AsignTagComponent } from './asign-tag/asign-tag.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,16 @@ import { TestComponent } from './test/test.component';
     HeaderComponent,
     ShowAllComponent,
     UploadImagesComponent,
-    TestComponent
+    TestComponent,
+    AsignTagComponent
   ],
   imports: [
     Angular2ImageGalleryModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
