@@ -29,7 +29,7 @@ export class ConfigService {
   }
 
   public getAllImagesURL() {
-    return this.client.get(this.urlPath + '/api/Images/GetAll/url');
+    return this.client.get<ImageModel>(this.urlPath + '/api/Images/GetAll/url');
   }
 
   public getImageTags(imageId: string) {
@@ -42,9 +42,12 @@ export class ConfigService {
     });
   }
 
-  //se viene el modelo, por lo que cada tag trae todas las imágenes asociadas
   public GetAllTags() {
     return this.client.get(this.urlPath + '/api/tag/all');
+  }
+
+  public GetAllImageTagConfig() {
+    return this.client.get <ImageTagConfig>(this.urlPath + '/api/tag/imagetagconfig');
   }
 
   public CreateTag(tagName: string) {
@@ -56,4 +59,18 @@ export class ConfigService {
     return this.client.get(this.urlPath + 'api/images/untagged');
   }
 
+}
+
+export interface ImageModel {
+  ImageId: string,
+  ImageUrl: string,
+  Tagged: boolean,
+  Processed: boolean,
+  UserId: number,
+  ImageTagConfig: ImageTagConfig[];
+}
+
+export interface ImageTagConfig {
+  ImageId: string,
+  TagId: string
 }
