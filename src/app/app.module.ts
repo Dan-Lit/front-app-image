@@ -11,6 +11,7 @@ import { UploadImagesComponent } from './upload-images/upload-images.component';
 import { TestComponent } from './test/test.component';
 import { AsignTagComponent } from './asign-tag/asign-tag.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateTagComponent } from './create-tag/create-tag.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ShowAllComponent,
     UploadImagesComponent,
     TestComponent,
-    AsignTagComponent
+    AsignTagComponent,
+    CreateTagComponent
   ],
   imports: [
     Angular2ImageGalleryModule,
