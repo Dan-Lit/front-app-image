@@ -13,6 +13,7 @@ import { AsignTagComponent } from './asign-tag/asign-tag.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateTagComponent } from './create-tag/create-tag.component';
 import { FilterImagesComponent } from './filter-images/filter-images.component';
+import { UntaggedComponent } from './untagged/untagged.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FilterImagesComponent } from './filter-images/filter-images.component';
     TestComponent,
     AsignTagComponent,
     CreateTagComponent,
-    FilterImagesComponent
+    FilterImagesComponent,
+    UntaggedComponent
   ],
   imports: [
     Angular2ImageGalleryModule,

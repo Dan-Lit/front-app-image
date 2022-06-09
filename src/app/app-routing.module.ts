@@ -5,6 +5,7 @@ import { CreateTagComponent } from './create-tag/create-tag.component';
 import { FilterImagesComponent } from './filter-images/filter-images.component';
 import { ShowAllComponent } from './show-all/show-all.component';
 import { TestComponent } from './test/test.component';
+import { UntaggedComponent } from './untagged/untagged.component';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'upload', component: UploadImagesComponent },
   { path: 'test', component: TestComponent },
   { path: 'create-tag', component: CreateTagComponent },
-  { path: 'filter', component: FilterImagesComponent }
+  { path: 'filter', component: FilterImagesComponent },
+  { path: 'untagged', component: UntaggedComponent }
 ];
 
 @NgModule({

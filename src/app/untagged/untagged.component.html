@@ -1,0 +1,7 @@
+<p>Las siguientes imágenes no tienen ningún tag asociado. </p>
+
+<div class="gallery" *ngFor="let image of data">
+  <a target="_blank" [href]="image.href">
+    <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
+  </a>
+</div>
