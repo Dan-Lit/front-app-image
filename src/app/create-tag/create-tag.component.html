@@ -1,0 +1,16 @@
+<form (ngSubmit)="submit(form)" #form="ngForm">
+
+  ImageID
+  <input type="text"
+         id="tagName"
+         name="tagName"
+         [(ngModel)]="tagName"
+         required
+         class="form-control" />
+
+  <button type="submit"
+          [disabled]="!form.valid">
+    Enviar
+  </button>
+
+</form>
