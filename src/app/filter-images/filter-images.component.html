@@ -1,0 +1,23 @@
+<form (ngSubmit)="submit(form)" #form="ngForm">
+
+  Nombre del tag
+  <input type="text"
+         id="tagName"
+         name="tagName"
+         [(ngModel)]="tagName"
+         required
+         class="form-control" />
+
+  <button type="submit"
+          [disabled]="!form.valid">
+    Buscar
+  </button>
+
+</form>
+
+<div class="gallery" *ngFor="let image of data">
+  <a>
+    <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
+  </a>
+</div>
+
