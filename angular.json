@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "front-app-image"
+  "defaultProject": "front-app-image",
+  "cli": {
+    "analytics": false
+  }
 }
