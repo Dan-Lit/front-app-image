@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +25,6 @@ import { FilterImagesComponent } from './filter-images/filter-images.component';
     FilterImagesComponent
   ],
   imports: [
-    Angular2ImageGalleryModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
