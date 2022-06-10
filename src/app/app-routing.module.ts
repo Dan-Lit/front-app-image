@@ -9,13 +9,21 @@ import { UntaggedComponent } from './untagged/untagged.component';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
 
 const routes: Routes = [
-  { path: 'show-all', component: ShowAllComponent },
+  {
+    path: 'show-all', component: ShowAllComponent, children: [{
+      path: 'edit/:id', component: AsignTagComponent
+    }]
+  },
   { path: 'asign-tag', component: AsignTagComponent },
   { path: 'upload', component: UploadImagesComponent },
   { path: 'test', component: TestComponent },
   { path: 'create-tag', component: CreateTagComponent },
   { path: 'filter', component: FilterImagesComponent },
-  { path: 'untagged', component: UntaggedComponent }
+  {
+    path: 'untagged', component: UntaggedComponent, children: [{
+      path: 'edit/:id', component: AsignTagComponent
+    }]
+  },
 ];
 
 @NgModule({

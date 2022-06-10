@@ -1,5 +1,6 @@
+<router-outlet></router-outlet>
 <div class="gallery" *ngFor="let image of data">
-  <a>
+  <a routerLink="edit/{{image.imageId}}">
     <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
   </a>
 </div>
