@@ -1,7 +1,8 @@
-<p>Las siguientes imágenes no tienen ningún tag asociado. </p>
+<p class="p-3">Las siguientes imágenes no tienen ningún tag asociado. </p>
 
+<router-outlet></router-outlet>
 <div class="gallery" *ngFor="let image of data">
-  <a target="_blank" [href]="image.href">
-    <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
+  <a routerLink="edit/{{image.imageId}}">
+    <img [src]="this.endpoint + image.imageId + '.jpg'">
   </a>
 </div>

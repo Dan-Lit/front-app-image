@@ -1,24 +1,30 @@
-<form (ngSubmit)="submit(form)" #form="ngForm">
+<div class="p-3">
+  <form #form="ngForm">
+    <label>ImageId:</label>
+    <input type="text"
+           id="imageId"
+           name="imageId"
+           [(ngModel)]="imageId"
+           required
+           class="form-control" />
+    <label>Name Tag:</label>
+    <input type="text"
+           id="nameTag"
+           name="nameTag"
+           [(ngModel)]="nameTag"
+           required
+           class="form-control" />
 
-  ImageID
-  <input type="text"
-         id="imageId"
-         name="imageId"
-         [(ngModel)]="imageId"
-         required
-         class="form-control"/>
-  Name Tag
-  <input type="text"
-         id="nameTag"
-         name="nameTag"
-         [(ngModel)]="nameTag"
-         required
-         class="form-control"/>
-
-  <button
-          type="submit"
-          [disabled]="!form.valid">
-    Enviar
-  </button>
-
-</form>
+    <button type="button"
+            class=" btn btn-light"
+            [disabled]="!form.valid"
+            (click)="submit()">
+      Enviar
+    </button>
+    <button type="button"
+            class="btn btn-light"
+            (click)="cancel()">
+      Cancelar
+    </button>
+  </form>
+</div>

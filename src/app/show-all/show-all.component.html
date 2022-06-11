@@ -1,16 +1,6 @@
-<!--<div class="slidecontainer">
-  <input type="range" min="1" max="20" value="1" class="slider"
-         name="slider">
-</div>
-
-<gallery [flexBorderSize]="1"
-         [flexImageSize]="1">
-</gallery>-->
-<!--node node_modules/angular2-image-gallery/convert.js C:/Users/danie/source/repos/front-app-image/src/assets/images-->
-
+<router-outlet></router-outlet>
 <div class="gallery" *ngFor="let image of data">
-  <a target="_blank" [href]="image.href">
+  <a routerLink="edit/{{image.imageId}}">
     <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
   </a>
-  <div>Tag: {{image.tagged}}</div>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConfigService } from '../services/config.service';
 
 @Component({
@@ -7,21 +7,29 @@ import { ConfigService } from '../services/config.service';
   templateUrl: './asign-tag.component.html',
   styleUrls: ['./asign-tag.component.css']
 })
-export class AsignTagComponent implements OnInit {
+export class AsignTagComponent {
 
   imageId: any;
   nameTag: any;
 
-  constructor(private imageService: ConfigService) {}
+  constructor(private imageService: ConfigService, private route: ActivatedRoute, private router: Router) {}
 
-  ngOnInit(): void {
+  ngAfterContentChecked(): void {
+    const id: string = this.route.snapshot.params['id'];
+    this.imageId = id;
+
   }
 
-  submit(form: NgForm) {
+  cancel() {
+    console.log('cancelado');
+    this.router.navigate(['.'], { relativeTo: this.route.parent });
+  }
+
+  submit() {
+    console.log(this.imageId + ',' + this.nameTag);
+
     this.imageService.AssignTag(this.imageId, this.nameTag)
       .subscribe(data => {
-        console.log(this.imageId);
-        console.log(this.nameTag);
         console.log(data);
       })
   }
