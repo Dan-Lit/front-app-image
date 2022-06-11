@@ -1,9 +1,14 @@
-<label class="image-upload-container btn btn-bwm">
-  <span>Select Image</span>
-  <input #imageInput
-         type="file"
-         accept="image/*"
-         (change)="processFile(imageInput)"
-         MULTIPLE
-         >
-</label>
+
+<div class="p-3">
+  <label>Sube tus imágenes. Tus imágenes deben ser archivos jpg o png. </label>
+</div>
+
+<div>
+  <label class="image-upload-container btn btn-bwm">
+    <input #imageInput
+           type="file"
+           accept="image/*"
+           (change)="processFile(imageInput)"
+           MULTIPLE>
+  </label>
+  </div>
