@@ -1,6 +1,20 @@
 <router-outlet></router-outlet>
-<div class="gallery" *ngFor="let image of data">
-  <a routerLink="edit/{{image.imageId}}">
-    <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
-  </a>
+<ng-template #showimages>
+  <div class="gallery" *ngFor="let image of data">
+    <a routerLink="edit/{{image.imageId}}">
+      <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
+    </a>
+  </div>
+</ng-template>
+
+
+<div *ngIf="data.length===0; else showimages">
+  <div class="row">
+    <div class="col-xl-5">
+      <img class="img-fluid" src="./assets/404.png" />
+    </div>
+    <div class="col">
+      <h2 class="m-3 mt-5">Vaya. No hemos encontrado ninguna foto. </h2>
+    </div>
+  </div>
 </div>
