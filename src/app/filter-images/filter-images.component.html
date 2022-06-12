@@ -1,24 +1,22 @@
-<form (ngSubmit)="submit(form)" #form="ngForm">
-
-  Nombre del tag
-  <input type="text"
-         id="tagName"
-         name="tagName"
-         [(ngModel)]="tagName"
-         required
-         class="form-control" />
-
-  <button type="submit"
-          class="btn btn-secondary mt-1"
-          [disabled]="!form.valid">
-    Buscar
-  </button>
-
-</form>
-
-<div class="gallery" *ngFor="let image of data">
-  <a>
-    <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
-  </a>
+<div class="p-3">
+  <div class="m-3"><label>Selecciona los tags que quieres filtrar</label></div>
+  
+  <form #form="ngForm">
+    <app-chip>
+    </app-chip>
+    <button type="button"
+            class=" btn btn-light mt-3"
+            (click)="submit()">
+      Buscar por tags seleccionados
+    </button>
+  </form>
 </div>
 
+<div *ngIf="retrieved">
+  <div class="gallery"
+       *ngFor="let image of data | tagfilter: selectedTags">
+    <a>
+      <img [src]="this.endpoint + image.imageId + '.jpg'" width="300" height="200">
+    </a>
+  </div>
+</div>

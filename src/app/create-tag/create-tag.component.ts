@@ -15,8 +15,7 @@ export class CreateTagComponent {
   submit(form: NgForm) {
     this.imageService.CreateTag(this.tagName)
       .subscribe(data => {
-        console.log(this.tagName);
-        console.log(data);
+        console.log('tag creado: ' + this.tagName);
       })
 
   }
