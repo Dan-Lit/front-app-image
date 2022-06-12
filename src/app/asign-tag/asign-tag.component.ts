@@ -1,6 +1,11 @@
-import { Component} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ConfigService } from '../services/config.service';
+import { Component, ViewChild} from '@angular/core';
+import { ControlValueAccessor, FormControl } from '@angular/forms';
+import { MatChip, MatChipList } from '@angular/material/chips';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { ConfigService, Tag } from '../services/config.service';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { waitForAsync } from '@angular/core/testing';
 
 @Component({
   selector: 'app-asign-tag',
@@ -10,14 +15,24 @@ import { ConfigService } from '../services/config.service';
 export class AsignTagComponent {
 
   imageId: any;
-  nameTag: any;
+  tags: any;
 
-  constructor(private imageService: ConfigService, private route: ActivatedRoute, private router: Router) {}
+  chipsControl = new FormControl();
+  chipsControlValue$ = this.chipsControl.valueChanges;
 
-  ngAfterContentChecked(): void {
-    const id: string = this.route.snapshot.params['id'];
-    this.imageId = id;
+  constructor(private imageService: ConfigService, private route: ActivatedRoute, private router: Router) {
+  }
 
+  ngOnInit(): void {
+    this.imageId = this.route.snapshot.params['id'];
+
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.imageId = params['id'];
+          console.log(this.imageId);
+        }
+    );
   }
 
   cancel() {
@@ -26,12 +41,14 @@ export class AsignTagComponent {
   }
 
   submit() {
-    console.log(this.imageId + ',' + this.nameTag);
+    const tagArray: string[] = this.chipsControl.value;
+    console.log(tagArray);
 
-    this.imageService.AssignTag(this.imageId, this.nameTag)
-      .subscribe(data => {
-        console.log(data);
-      })
+    tagArray.forEach( (value) => {
+      console.log(value);
+      this.imageService.AssignTag(this.imageId, value)
+        .subscribe();
+    });
+
   }
-
 }

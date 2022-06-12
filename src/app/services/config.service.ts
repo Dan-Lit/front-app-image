@@ -43,7 +43,7 @@ export class ConfigService {
   }
 
   public GetAllTags() {
-    return this.client.get(this.urlPath + '/api/tag/all');
+    return this.client.get<string[]>(this.urlPath + '/api/tag/all');
   }
 
   public GetAllImageTagConfig() {
@@ -68,6 +68,11 @@ export interface ImageModel {
   Processed: boolean,
   UserId: number,
   ImageTagConfig: ImageTagConfig[];
+}
+
+export interface Tag {
+  tagId: string;
+  imagetagconfig: any[];
 }
 
 export interface ImageTagConfig {

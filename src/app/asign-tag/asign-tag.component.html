@@ -7,13 +7,8 @@
            [(ngModel)]="imageId"
            required
            class="form-control" />
-    <label>Name Tag:</label>
-    <input type="text"
-           id="nameTag"
-           name="nameTag"
-           [(ngModel)]="nameTag"
-           required
-           class="form-control" />
+    <app-chip [formControl]="chipsControl">
+    </app-chip>
 
     <button type="button"
             class=" btn btn-light"

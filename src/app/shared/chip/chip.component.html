@@ -1,0 +1,9 @@
+<mat-chip-list selectable multiple>
+  <mat-chip #c="matChip"
+            *ngFor="let tag of tags"
+            [value]="tag"
+            (click)="toggleSelection(c)"
+            >
+    {{tag}}
+  </mat-chip>
+</mat-chip-list>
