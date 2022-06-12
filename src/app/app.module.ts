@@ -22,6 +22,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ChipComponent } from './shared/chip/chip.component';
 import { HomeComponent } from './home/home.component';
 import { TagPipe } from './shared/filter.pipe';
+import { CondicionesComponent } from './condiciones/condiciones.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { TagPipe } from './shared/filter.pipe';
     ChipComponent,
     HomeComponent,
     TagPipe,
+    CondicionesComponent,
     
   ],
   imports: [

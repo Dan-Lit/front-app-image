@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AsignTagComponent } from './asign-tag/asign-tag.component';
+import { CondicionesComponent } from './condiciones/condiciones.component';
 import { CreateTagComponent } from './create-tag/create-tag.component';
 import { FilterImagesComponent } from './filter-images/filter-images.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
       path: 'edit/:id', component: AsignTagComponent
     }]
   },
+  { path: 'terminos', component: CondicionesComponent },
 ];
 
 @NgModule({
