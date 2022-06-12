@@ -1,9 +1,18 @@
-<mat-chip-list selectable multiple>
-  <mat-chip #c="matChip"
-            *ngFor="let tag of tags"
-            [value]="tag"
-            (click)="toggleSelection(c)"
-            >
-    {{tag}}
-  </mat-chip>
-</mat-chip-list>
+
+<ng-template #showmatship>
+  <mat-chip-list selectable multiple>
+    <mat-chip #c="matChip"
+              *ngFor="let tag of tags"
+              [value]="tag"
+              (click)="toggleSelection(c)"
+              >
+      {{tag}}
+    </mat-chip>
+  </mat-chip-list>
+</ng-template>
+
+<div *ngIf="tags.length===0; else showmatship">
+  <div class="row mt-4">
+    <p>No se ha encontrado ningún tag. Crea tu primer tag o revisa tu conexión a internet.</p>
+  </div>
+</div>
