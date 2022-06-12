@@ -37,6 +37,7 @@ import { TagPipe } from './shared/filter.pipe';
     UntaggedComponent,
     ChipComponent,
     HomeComponent,
+    TagPipe,
     
   ],
   imports: [
@@ -49,7 +50,6 @@ import { TagPipe } from './shared/filter.pipe';
     MatInputModule,
     MatIconModule,
     MatAutocompleteModule,
-    TagPipe,
   ],
   providers: [],
   bootstrap: [AppComponent]
