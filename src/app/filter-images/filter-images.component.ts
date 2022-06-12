@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { filter } from 'rxjs';
+import { FormControl, NgForm } from '@angular/forms';
+import { filter, firstValueFrom } from 'rxjs';
 import { ConfigService } from '../services/config.service';
 
 @Component({
@@ -11,22 +11,25 @@ import { ConfigService } from '../services/config.service';
 export class FilterImagesComponent implements OnInit {
   tagName: any;
   data: any = [];
+  selectedTags!: string[];
+  retrieved: boolean = false;
   endpoint = 'assets/database/';
+
+  chipsControlFilter = new FormControl();
+  chipsControlValue$ = this.chipsControlFilter.valueChanges;
 
   constructor(private imageService: ConfigService) { }
 
   ngOnInit(): void {
+
   }
 
-  submit(form: NgForm) {
+  async submit() {
 
-    this.imageService.GetAllImageTagConfig()
-      .subscribe(data => {
-        this.data = data;
-        this.data = this.data.filter((x: { tagId: string; }) => x.tagId === this.tagName);
-        console.log(this.data);
+    this.data = await firstValueFrom(this.imageService.GetAllImageTagConfig());
+    this.selectedTags = ['test', 'all']
+    console.log(this.data);
 
-      });
-    
+    this.retrieved = true;
   }
 }
